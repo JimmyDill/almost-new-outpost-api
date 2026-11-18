@@ -1,4 +1,5 @@
 ﻿using AlmostNewOutpost.Api.Data;
+using AlmostNewOutpost.Api.Models.Entities;
 using AlmostNewOutpost.Api.Models.Responses;
 using Microsoft.EntityFrameworkCore;
 
@@ -33,6 +34,17 @@ namespace AlmostNewOutpost.Api.Repositories
             return users;
         }
 
+        public async Task<User?> FindByIdAsync(int userId) 
+        {
+            return await _db.Users.FindAsync(userId);
+        }
 
+        public async Task SaveChangesAsync() 
+        {
+            await _db.SaveChangesAsync();
+        }
+        
+
+        }
     }
-}
+
