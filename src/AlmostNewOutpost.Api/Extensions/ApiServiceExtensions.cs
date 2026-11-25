@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using AlmostNewOutpost.Api.Repositories;
 using AlmostNewOutpost.Api.Services;
 using Microsoft.Extensions.Options;
 using FrameworkCorsOptions = Microsoft.AspNetCore.Cors.Infrastructure.CorsOptions;
@@ -36,6 +37,8 @@ public static class ApiServiceExtensions
         services.AddScoped<ProductService>();
         services.AddScoped<PurchaseService>();
         services.AddScoped<UserService>();
+        services.AddScoped<IAdminRolesService, AdminRolesService>();
+        services.AddScoped<IAdminRolesRepository, AdminRolesRepository>();
 
         return services;
     }
